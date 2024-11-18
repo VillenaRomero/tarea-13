@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playermoved : MonoBehaviour
+public class personaje : MonoBehaviour
 {
     public float horizontal;
     public float vertical;
@@ -12,22 +11,18 @@ public class playermoved : MonoBehaviour
     private Rigidbody2D _compRigidbody2D;
     public GameObject bulletprefab;
     // Start is called before the first frame update
-    private void Awake()
+    private void Start()
     {
         _compRigidbody2D = GetComponent<Rigidbody2D>();
     }
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         _compRigidbody2D.velocity = new Vector2(speedx * horizontal, speedy * vertical);
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             Instantiate(bulletprefab, transform.position, transform.rotation);
         }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movenetbullet : MonoBehaviour
+public class bala : MonoBehaviour
 {
     public float speedy;
     public float vertical;
@@ -14,17 +14,22 @@ public class movenetbullet : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-         rb.velocity = new Vector2(0 ,speedy * vertical);
+        rb.velocity = new Vector2(0, speedy * vertical);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "zombi") {
+        if (collision.gameObject.tag == "zombi")
+        {
+            Destroy(this.gameObject);
+        }
+        if (collision.gameObject.tag == "vacio")
+        {
             Destroy(this.gameObject);
         }
     }

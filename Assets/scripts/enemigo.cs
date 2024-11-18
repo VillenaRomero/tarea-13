@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class death : MonoBehaviour
+public class enemigo : MonoBehaviour
 {
     public AudioSource AudioSource;
     // Start is called before the first frame update
@@ -11,7 +11,7 @@ public class death : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class death : MonoBehaviour
         {
             Destroy(this.gameObject);
             AudioSource.Play();
-            
+
         }
     }
 }
